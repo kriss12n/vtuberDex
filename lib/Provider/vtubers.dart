@@ -15,7 +15,7 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/melty/4.png",
           "assets/emotes/melty/5.png",
         ],
-        sounds: [],
+        sounds: ["assets/sounds/melty/puto.mp3"],
         colors: [Color(0xff7663ED), Color.fromARGB(20, 69, 64, 224)],
         lore:
             "Hewwo~ soy Melty Me gustan mucho los juegos mmo/rpg y survival, me encanta divertirme jugando ya sea sola o en multijugador(en especial en multijugador).Tengo una fascinación por los anime de genero Isekai / Love Comedy, y las novelas ligeras.Sí, soy bastante Otaku",

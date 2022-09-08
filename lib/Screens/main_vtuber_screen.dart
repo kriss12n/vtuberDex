@@ -14,6 +14,16 @@ class MainVtuberScreen extends StatelessWidget {
     List<Vtuber> vtuberslist = Provider.of<Vtubers>(context).vtuberList;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+          elevation: 0,
+          title: const Text("VtuberDEX",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffA694F1)))),
       body: SafeArea(
         child: GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -71,21 +81,5 @@ class MainVtuberScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class LogoApp extends StatelessWidget {
-  const LogoApp({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text("VtuberDEX",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xffA694F1)));
   }
 }
