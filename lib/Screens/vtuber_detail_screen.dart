@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import '../Provider/vtubers.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class VtuberDetailScreen extends StatelessWidget {
   const VtuberDetailScreen({super.key});
@@ -116,6 +117,14 @@ class VtuberDetailScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15.0)),
                           builder: (context) => Column(
                             children: [
+                              const SizedBox(height: 10.0),
+                              const Text(
+                                "Emotes",
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                              const SizedBox(height: 15.0),
                               Expanded(
                                 child: GridView.builder(
                                     padding: const EdgeInsets.all(10.0),
@@ -151,6 +160,7 @@ class VtuberDetailScreen extends StatelessWidget {
                                 },
                                 child: const Text("Cerrar"),
                               ),
+                              const SizedBox(height: 40.0),
                             ],
                           ),
                         );
@@ -194,8 +204,12 @@ class VtuberDetailScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.play_arrow_rounded),
+                              onPressed: () async {
+                                final player = AudioPlayer();
+                                await player.setSource(
+                                    AssetSource("sounds/melty/puto.mp3"));
+                              },
+                              icon: const Icon(Icons.play_arrow_rounded),
                               color: Colors.white,
                             ),
                             const Text(
