@@ -18,6 +18,7 @@ class MainVtuberScreen extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
           elevation: 0,
+          centerTitle: true,
           title: const Text("VtuberDEX",
               textAlign: TextAlign.center,
               style: TextStyle(

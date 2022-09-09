@@ -111,7 +111,7 @@ class VtuberDetailScreen extends StatelessWidget {
                       children: vtuber.emotes.map((emote) {
                     return GestureDetector(
                       onTap: () {
-                        showModalBottomSheet(
+                        /*   showModalBottomSheet(
                           context: context,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0)),
@@ -163,7 +163,7 @@ class VtuberDetailScreen extends StatelessWidget {
                               const SizedBox(height: 40.0),
                             ],
                           ),
-                        );
+                        ); */
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
