@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Material App',
         initialRoute: MainVtuberScreen.routeName,
-        theme: ThemeData(fontFamily: "Lato"),
+        theme: ThemeData(
+            fontFamily: "Lato", scaffoldBackgroundColor: Color(0xff424350)),
         routes: {
           MainVtuberScreen.routeName: (context) => const MainVtuberScreen(),
           VtuberDetailScreen.routeName: (context) => const VtuberDetailScreen(),

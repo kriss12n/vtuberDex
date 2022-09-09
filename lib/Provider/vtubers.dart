@@ -53,6 +53,23 @@ class Vtubers with ChangeNotifier {
         lore:
             "Kotone who? Yo solo conozco a Potone, la joven promesa del vtubing hispano ᏊºัꈊºัᏊ Solo soy una oveja mañosa con pezuñas afiladas así que pórtate bien~ Bienvenid@ al corral ♡!! 🐑",
         image: "assets/images/kotone.png"),
+    Vtuber(
+        name: "Chocomint",
+        birthday: "Jul. 15",
+        debut: "Nov. 15",
+        country: "Chile",
+        emotes: [
+          "assets/emotes/chocomint/menta1.png",
+          "assets/emotes/chocomint/menta2.png",
+          "assets/emotes/chocomint/menta3.png",
+          "assets/emotes/chocomint/menta4.png",
+          "assets/emotes/chocomint/menta5.png"
+        ],
+        sounds: [],
+        colors: [Color(0xffB2C98D), Color.fromARGB(20, 181, 225, 174)],
+        lore:
+            "Hola! Soy Mint, puedes llamarme Minty, Choco, Chocomint y Menta. Soy una ninfa de menta que se aburrió de su trabajo y decidió que es mejor jugar en el pc jajaja.",
+        image: "assets/images/menta.png"),
   ];
 
   List<Vtuber> get vtuberList {

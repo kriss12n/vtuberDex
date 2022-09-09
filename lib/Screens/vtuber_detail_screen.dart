@@ -23,6 +23,23 @@ class VtuberDetailScreen extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(
+                            5.0,
+                            5.0,
+                          ),
+                          blurRadius: 10.0,
+                          spreadRadius: 2.0,
+                        ), //BoxShadow
+                        BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(0.0, 0.0),
+                          blurRadius: 0.0,
+                          spreadRadius: 0.0,
+                        ), //BoxShadow
+                      ],
                       borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(40.0),
                           bottomRight: Radius.circular(40.0)),
@@ -53,7 +70,9 @@ class VtuberDetailScreen extends StatelessWidget {
                   vtuber.name,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
               const SizedBox(height: 5),
@@ -74,9 +93,7 @@ class VtuberDetailScreen extends StatelessWidget {
                 child: Text(
                   vtuber.lore,
                   textAlign: TextAlign.left,
-                  style: const TextStyle(
-                    fontSize: 16,
-                  ),
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
               const SizedBox(
@@ -97,7 +114,10 @@ class VtuberDetailScreen extends StatelessWidget {
                 child: Text(
                   "Algunos Emotes",
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
               const SizedBox(
@@ -185,7 +205,10 @@ class VtuberDetailScreen extends StatelessWidget {
                 child: Text(
                   "Sonidos",
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
               Padding(
