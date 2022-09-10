@@ -17,6 +17,7 @@ class Vtubers with ChangeNotifier {
         ],
         sounds: ["assets/sounds/melty/puto.mp3"],
         colors: [Color(0xff7663ED), Color.fromARGB(20, 69, 64, 224)],
+        wallpapers: [],
         lore:
             "Hewwo~ soy Melty Me gustan mucho los juegos mmo/rpg y survival, me encanta divertirme jugando ya sea sola o en multijugador(en especial en multijugador).Tengo una fascinación por los anime de genero Isekai / Love Comedy, y las novelas ligeras.Sí, soy bastante Otaku",
         image: "assets/images/melty_grande.png"),
@@ -28,6 +29,7 @@ class Vtubers with ChangeNotifier {
         emotes: [],
         sounds: [],
         colors: [Color(0xffEBFF00), Color.fromARGB(20, 246, 248, 102)],
+        wallpapers: ["assets/wallpapers/tri/wallpaper1.png"],
         lore:
             "Muy buenas! soy una pequeña artista nacida en un hermoso y utópico lugar llamado Latinoamérica, en Panamá para ser más precisos. Me gustan las monas chinas y simpeo profesionalmente otras vtubers xDDDD Mi trabajo no será la gran cosa, pero es honesto y lo hago con cariño, asi que espero que les guste las pendejadas que haga uwu",
         image: "assets/images/tri.png"),
@@ -39,6 +41,7 @@ class Vtubers with ChangeNotifier {
         emotes: [],
         sounds: [],
         colors: [Color(0xffFF0000), Color.fromARGB(20, 148, 40, 40)],
+        wallpapers: [],
         lore:
             "Buenas! puedes decirme chimu, chumi, mich- así no era. Mi vida es un chiste Y NO SOY GATA!!1! créanme xfa.",
         image: "assets/images/chomo.png"),
@@ -50,6 +53,7 @@ class Vtubers with ChangeNotifier {
         emotes: [],
         sounds: [],
         colors: [Color(0xffE3E2ED), Color.fromARGB(20, 160, 160, 166)],
+        wallpapers: [],
         lore:
             "Kotone who? Yo solo conozco a Potone, la joven promesa del vtubing hispano ᏊºัꈊºัᏊ Solo soy una oveja mañosa con pezuñas afiladas así que pórtate bien~ Bienvenid@ al corral ♡!! 🐑",
         image: "assets/images/kotone.png"),
@@ -67,6 +71,7 @@ class Vtubers with ChangeNotifier {
         ],
         sounds: [],
         colors: [Color(0xffB2C98D), Color.fromARGB(20, 181, 225, 174)],
+        wallpapers: [],
         lore:
             "Hola! Soy Mint, puedes llamarme Minty, Choco, Chocomint y Menta. Soy una ninfa de menta que se aburrió de su trabajo y decidió que es mejor jugar en el pc jajaja.",
         image: "assets/images/menta.png"),

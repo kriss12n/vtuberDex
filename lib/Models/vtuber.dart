@@ -9,6 +9,7 @@ class Vtuber {
   final String image;
   List<String> sounds = [];
   List<String> emotes = [];
+  List<String> wallpapers = [];
   List<Color> colors = [];
 
   Vtuber(
@@ -20,5 +21,6 @@ class Vtuber {
       required this.emotes,
       required this.sounds,
       required this.colors,
+      required this.wallpapers,
       required this.image});
 }

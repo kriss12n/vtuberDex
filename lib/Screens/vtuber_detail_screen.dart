@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import '../Provider/vtubers.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -131,7 +132,8 @@ class VtuberDetailScreen extends StatelessWidget {
                       children: vtuber.emotes.map((emote) {
                     return GestureDetector(
                       onTap: () {
-                        /*   showModalBottomSheet(
+                        showModalBottomSheet(
+                          backgroundColor: Color(0xff424350),
                           context: context,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0)),
@@ -141,8 +143,7 @@ class VtuberDetailScreen extends StatelessWidget {
                               const Text(
                                 "Emotes",
                                 style: TextStyle(
-                                  fontSize: 20.0,
-                                ),
+                                    fontSize: 20.0, color: Colors.white),
                               ),
                               const SizedBox(height: 15.0),
                               Expanded(
@@ -183,7 +184,7 @@ class VtuberDetailScreen extends StatelessWidget {
                               const SizedBox(height: 40.0),
                             ],
                           ),
-                        ); */
+                        );
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -203,6 +204,44 @@ class VtuberDetailScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: Text(
+                  "Wallpapers",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      children: vtuber.wallpapers.map((wall) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                            VtuberImageViewScreen.routeName,
+                            arguments: wall);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Image.asset(
+                          wall,
+                          width: 100,
+                          height: 230,
+                        ),
+                      ),
+                    );
+                  }).toList()),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
                   "Sonidos",
                   textAlign: TextAlign.left,
                   style: TextStyle(
@@ -211,7 +250,7 @@ class VtuberDetailScreen extends StatelessWidget {
                       color: Colors.white),
                 ),
               ),
-              Padding(
+              /*  Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -245,7 +284,7 @@ class VtuberDetailScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ) */
             ],
           ),
         ),
