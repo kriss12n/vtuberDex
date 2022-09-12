@@ -18,7 +18,7 @@ class VtuberImageViewScreen extends StatelessWidget {
       body: Stack(
         children: [
           Image.network(
-            "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662782947/wallpapers/tri/wallpaper1_zn58ik.png",
+            imageLoaded,
             height: double.infinity,
             width: double.infinity,
           ),
@@ -48,12 +48,9 @@ class VtuberImageViewScreen extends StatelessWidget {
                             await AsyncWallpaper.platformVersion ??
                                 'Unknown platform version';
                             await AsyncWallpaper.setWallpaper(
-                              url:
-                                  "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662782947/wallpapers/tri/wallpaper1_zn58ik.png",
-                              wallpaperLocation: AsyncWallpaper.HOME_SCREEN,
-                            )
-                                ? 'Wallpaper set'
-                                : 'Failed to get wallpaper.';
+                                url: imageLoaded,
+                                wallpaperLocation: AsyncWallpaper.HOME_SCREEN,
+                                goToHome: true);
                           } on PlatformException {
                             print('Failed to get wallpaper.');
                           }

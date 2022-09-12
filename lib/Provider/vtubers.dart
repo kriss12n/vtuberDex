@@ -29,7 +29,9 @@ class Vtubers with ChangeNotifier {
         emotes: [],
         sounds: [],
         colors: [Color(0xffEBFF00), Color.fromARGB(20, 246, 248, 102)],
-        wallpapers: ["assets/wallpapers/tri/wallpaper1.png"],
+        wallpapers: [
+          "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662782947/wallpapers/tri/wallpaper1_zn58ik.png"
+        ],
         lore:
             "Muy buenas! soy una pequeña artista nacida en un hermoso y utópico lugar llamado Latinoamérica, en Panamá para ser más precisos. Me gustan las monas chinas y simpeo profesionalmente otras vtubers xDDDD Mi trabajo no será la gran cosa, pero es honesto y lo hago con cariño, asi que espero que les guste las pendejadas que haga uwu",
         image: "assets/images/tri.png"),
@@ -53,7 +55,9 @@ class Vtubers with ChangeNotifier {
         emotes: [],
         sounds: [],
         colors: [Color(0xffE3E2ED), Color.fromARGB(20, 160, 160, 166)],
-        wallpapers: [],
+        wallpapers: [
+          "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662798633/wallpapers/kotone/kotone1_cbs1by.png"
+        ],
         lore:
             "Kotone who? Yo solo conozco a Potone, la joven promesa del vtubing hispano ᏊºัꈊºัᏊ Solo soy una oveja mañosa con pezuñas afiladas así que pórtate bien~ Bienvenid@ al corral ♡!! 🐑",
         image: "assets/images/kotone.png"),

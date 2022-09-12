@@ -229,7 +229,7 @@ class VtuberDetailScreen extends StatelessWidget {
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Image.asset(
+                        child: Image.network(
                           wall,
                           width: 100,
                           height: 230,
