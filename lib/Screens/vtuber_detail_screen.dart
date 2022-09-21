@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:vtuberdex/Models/vtuber.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import '../Provider/vtubers.dart';
@@ -14,9 +17,11 @@ class VtuberDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String name = ModalRoute.of(context)!.settings.arguments as String;
     final vtuber = Provider.of<Vtubers>(context).findByID(name);
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
+
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,9 +46,6 @@ class VtuberDetailScreen extends StatelessWidget {
                           spreadRadius: 0.0,
                         ), //BoxShadow
                       ],
-                      borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(40.0),
-                          bottomRight: Radius.circular(40.0)),
                       gradient: LinearGradient(
                           colors: vtuber.colors,
                           begin: Alignment.topRight,
@@ -64,230 +66,263 @@ class VtuberDetailScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  vtuber.name,
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+              const TabBar(
+                  labelColor: Colors.white,
+                  unselectedLabelColor: Colors.grey,
+                  tabs: [Tab(text: "tab 1"), Tab(text: "tab 2")]),
+              Expanded(
+                child: TabBarView(
+                  children: <Widget>[Tab1(), Tab1()],
                 ),
               ),
-              const SizedBox(height: 5),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  vtuber.country,
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  vtuber.lore,
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CardDates(vtuber.birthday, "Cumpleaños"),
-                  CardDates(vtuber.debut, "Debut"),
-                ],
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  "Algunos Emotes",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                      children: vtuber.emotes.map((emote) {
-                    return GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                          backgroundColor: Color(0xff424350),
-                          context: context,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          builder: (context) => Column(
-                            children: [
-                              const SizedBox(height: 10.0),
-                              const Text(
-                                "Emotes",
-                                style: TextStyle(
-                                    fontSize: 20.0, color: Colors.white),
-                              ),
-                              const SizedBox(height: 15.0),
-                              Expanded(
-                                child: GridView.builder(
-                                    padding: const EdgeInsets.all(10.0),
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount: vtuber.emotes.length,
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 4,
-                                            childAspectRatio: 3 / 2,
-                                            crossAxisSpacing: 5.0,
-                                            mainAxisSpacing: 10.0),
-                                    itemBuilder: (context, index) {
-                                      return Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        child: Image.asset(
-                                          vtuber.emotes[index],
-                                          width: 32,
-                                          height: 32,
-                                        ),
-                                      );
-                                    }),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {},
-                                child:
-                                    const Text("Instalar emotes en whatsapp"),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text("Cerrar"),
-                              ),
-                              const SizedBox(height: 40.0),
-                            ],
-                          ),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Image.asset(
-                          emote,
-                          width: 64,
-                          height: 64,
-                        ),
-                      ),
-                    );
-                  }).toList()),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  "Wallpapers",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                      children: vtuber.wallpapers.map((wall) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                            VtuberImageViewScreen.routeName,
-                            arguments: wall);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Image.network(
-                          wall,
-                          width: 100,
-                          height: 230,
-                        ),
-                      ),
-                    );
-                  }).toList()),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(
-                  "Sonidos",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              /*  Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          color: Colors.orangeAccent,
-                        ),
-                        width: 70,
-                        height: 70,
-                        child: Column(
-                          children: [
-                            IconButton(
-                              onPressed: () async {
-                                final player = AudioPlayer();
-                                await player.setSource(
-                                    AssetSource("sounds/melty/puto.mp3"));
-                              },
-                              icon: const Icon(Icons.play_arrow_rounded),
-                              color: Colors.white,
-                            ),
-                            const Text(
-                              "Puto",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ) */
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Tab1 extends StatelessWidget {
+  const Tab1({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String name = ModalRoute.of(context)!.settings.arguments as String;
+    final vtuber = Provider.of<Vtubers>(context).findByID(name);
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              vtuber.name,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              vtuber.country,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
+            ),
+          ),
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              vtuber.lore,
+              textAlign: TextAlign.left,
+              style: const TextStyle(fontSize: 16, color: Colors.white),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              CardDates(vtuber.birthday, "Cumpleaños"),
+              CardDates(vtuber.debut, "Debut"),
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              "Algunos Emotes",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                  children: vtuber.emotes.map((emote) {
+                return GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      backgroundColor: Color(0xff424350),
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)),
+                      builder: (context) => Column(
+                        children: [
+                          const SizedBox(height: 10.0),
+                          const Text(
+                            "Emotes",
+                            style:
+                                TextStyle(fontSize: 20.0, color: Colors.white),
+                          ),
+                          const SizedBox(height: 15.0),
+                          Expanded(
+                            child: GridView.builder(
+                                padding: const EdgeInsets.all(10.0),
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: vtuber.emotes.length,
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 4,
+                                        childAspectRatio: 3 / 2,
+                                        crossAxisSpacing: 5.0,
+                                        mainAxisSpacing: 10.0),
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    child: Image.asset(
+                                      vtuber.emotes[index],
+                                      width: 32,
+                                      height: 32,
+                                    ),
+                                  );
+                                }),
+                          ),
+                          ElevatedButton(
+                            onPressed: () async {
+                              try {
+                                const url = "https://sticker.ly/s/YTURI1";
+                                if (await canLaunchUrlString(url)) {
+                                  launchUrlString(url,
+                                      mode: LaunchMode.externalApplication);
+                                }
+                              } catch (e) {
+                                print(e);
+                              }
+                            },
+                            child: const Text("Instalar emotes en whatsapp"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text("Cerrar"),
+                          ),
+                          const SizedBox(height: 40.0),
+                        ],
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Image.asset(
+                      emote,
+                      width: 64,
+                      height: 64,
+                    ),
+                  ),
+                );
+              }).toList()),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              "Wallpapers",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                  children: vtuber.wallpapers.map((wall) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                        VtuberImageViewScreen.routeName,
+                        arguments: wall);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Image.network(
+                      wall,
+                      width: 100,
+                      height: 230,
+                    ),
+                  ),
+                );
+              }).toList()),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              "Sonidos",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+          /*  Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            color: Colors.orangeAccent,
+                          ),
+                          width: 70,
+                          height: 70,
+                          child: Column(
+                            children: [
+                              IconButton(
+                                onPressed: () async {
+                                  final player = AudioPlayer();
+                                  await player.setSource(
+                                      AssetSource("sounds/melty/puto.mp3"));
+                                },
+                                icon: const Icon(Icons.play_arrow_rounded),
+                                color: Colors.white,
+                              ),
+                              const Text(
+                                "Puto",
+                                style: TextStyle(color: Colors.white),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ) */
+        ],
       ),
     );
   }
