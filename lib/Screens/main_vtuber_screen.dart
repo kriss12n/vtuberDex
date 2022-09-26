@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vtuberdex/Models/Vtuber.dart';
+import 'package:vtuberdex/Models/vtuber.dart';
 import 'package:vtuberdex/Provider/vtubers.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:vtuberdex/Screens/vtuber_detail_screen.dart';

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:vtuberdex/Screens/vtuber_detail_screen.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
