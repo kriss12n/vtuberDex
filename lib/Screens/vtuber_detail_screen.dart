@@ -7,6 +7,7 @@ import 'package:vtuberdex/Models/vtuber.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import 'package:vtuberdex/Widgets/Card_social_media.dart';
+import 'package:vtuberdex/Widgets/Custom_badge_tag.dart';
 import 'package:vtuberdex/Widgets/Labels.dart';
 import '../Provider/vtubers.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -118,6 +119,17 @@ class Tab1 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 5),
+            SizedBox(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                runSpacing: 5.0,
+                spacing: 5.0,
+                children: vtuber.types.map((e) {
+                  return CustomBadgeTag(type: e);
+                }).toList(),
+              ),
+            ),
+            const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
@@ -200,6 +212,13 @@ class Tab1 extends StatelessWidget {
                       color: Colors.black,
                       url: vtuber.tiktok),
                   const SizedBox(width: 15.0),
+                  CardSocialMedia(
+                      icon: const FaIcon(
+                        FontAwesomeIcons.discord,
+                        color: Colors.white,
+                      ),
+                      color: Colors.deepPurpleAccent,
+                      url: vtuber.tiktok),
                   const SizedBox(width: 15.0),
                 ],
               ),
@@ -408,7 +427,7 @@ class Tab2 extends StatelessWidget {
     String name = ModalRoute.of(context)!.settings.arguments as String;
     final vtuber = Provider.of<Vtubers>(context).findByID(name);
     return Padding(
-      padding: EdgeInsets.only(bottom: 30.0),
+      padding: const EdgeInsets.only(bottom: 30.0),
       child: SingleChildScrollView(
           child: Column(
         children: [
@@ -472,7 +491,6 @@ class Tab2 extends StatelessWidget {
           const SizedBox(height: 15),
           Labels(label: "Hobbies", data: vtuber.hobbies),
           const SizedBox(height: 15),
-          Labels(label: "Tipo", data: vtuber.type),
         ],
       )),
     );

@@ -19,6 +19,7 @@ class MainVtuberScreen extends StatelessWidget {
           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
           elevation: 0,
           centerTitle: true,
+          leading: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           title: const Text("VtuberDEX",
               textAlign: TextAlign.center,
               style: TextStyle(

@@ -15,7 +15,6 @@ class CardSocialMedia extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         try {
-          print(url);
           if (await canLaunchUrlString(url)) {
             launchUrlString(url, mode: LaunchMode.externalApplication);
           }
@@ -26,8 +25,8 @@ class CardSocialMedia extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.circular(10.0)),
-        width: 64,
-        height: 64,
+        width: 72,
+        height: 72,
         child: Center(child: icon),
       ),
     );
