@@ -35,7 +35,7 @@ Color returnBadgeColor(String type) {
   if (type == "Karaoke") return const Color(0xff8FD1FE);
   if (type == "bug") return const Color(0xffFED86F);
   if (type == "Vsinger") return const Color(0xffAEBD3F);
-  if (type == "normal") return const Color(0xffAAAB82);
+  if (type == "Musico") return const Color(0xffAAAB82);
   return const Color(0xff48D0B0);
 }
 
@@ -54,6 +54,10 @@ Widget returnBadgeIcon(String type) {
   }
   if (type == "Vsinger") {
     return const FaIcon((FontAwesomeIcons.microphone),
+        color: Colors.white, size: 18);
+  }
+  if (type == "Musico") {
+    return const FaIcon((FontAwesomeIcons.music),
         color: Colors.white, size: 18);
   }
   return const FaIcon((FontAwesomeIcons.gamepad),
