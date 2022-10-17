@@ -7,10 +7,10 @@ import 'package:vtuberdex/Models/vtuber.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import 'package:vtuberdex/Widgets/Card_social_media.dart';
+import 'package:vtuberdex/Widgets/Container_player.dart';
 import 'package:vtuberdex/Widgets/Custom_badge_tag.dart';
 import 'package:vtuberdex/Widgets/Labels.dart';
 import '../Provider/vtubers.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 class VtuberDetailScreen extends StatelessWidget {
   const VtuberDetailScreen({super.key});
@@ -29,56 +29,60 @@ class VtuberDetailScreen extends StatelessWidget {
             child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: Colors.black,
-              pinned: true,
-              floating: true,
-              centerTitle: true,
-              expandedHeight: 350,
-              stretch: true,
-              flexibleSpace: FlexibleSpaceBar(
-                background: Stack(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black54,
-                            offset: Offset(
-                              5.0,
-                              5.0,
-                            ),
-                            blurRadius: 10.0,
-                            spreadRadius: 2.0,
-                          ), //BoxShadow
-                          BoxShadow(
-                            color: Colors.white,
-                            offset: Offset(0.0, 0.0),
-                            blurRadius: 0.0,
-                            spreadRadius: 0.0,
-                          ), //BoxShadow
-                        ],
-                        gradient: LinearGradient(
-                            colors: vtuber.colors,
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft),
-                      ),
-                      child: Hero(
-                        tag: vtuber.name,
-                        child: Image.asset(
-                          vtuber.image,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
+                backgroundColor: Colors.black,
+                pinned: true,
+                floating: true,
+                centerTitle: true,
+                expandedHeight: 350,
+                stretch: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black54,
+                              offset: Offset(
+                                5.0,
+                                5.0,
+                              ),
+                              blurRadius: 10.0,
+                              spreadRadius: 2.0,
+                            ), //BoxShadow
+                            BoxShadow(
+                              color: Colors.white,
+                              offset: Offset(0.0, 0.0),
+                              blurRadius: 0.0,
+                              spreadRadius: 0.0,
+                            ), //BoxShadow
+                          ],
+                          gradient: LinearGradient(
+                              colors: vtuber.colors,
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft),
+                        ),
+                        child: Hero(
+                          tag: vtuber.name,
+                          child: Image.asset(
+                            vtuber.image,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              bottom: const TabBar(
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.grey,
-                  tabs: [Tab(text: "Canal"), Tab(text: "Vtuber")]),
-            ),
+                bottom: PreferredSize(
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.black54),
+                      child: const TabBar(
+                          labelColor: Colors.white,
+                          unselectedLabelColor: Colors.grey,
+                          tabs: [Tab(text: "Canal"), Tab(text: "Vtuber")]),
+                    ),
+                    preferredSize: const Size.fromHeight(50))),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
@@ -377,41 +381,17 @@ class Tab1 extends StatelessWidget {
                     color: Colors.white),
               ),
             ),
-            /*  Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.0),
-                                color: Colors.orangeAccent,
-                              ),
-                              width: 70,
-                              height: 70,
-                              child: Column(
-                                children: [
-                                  IconButton(
-                                    onPressed: () async {
-                                      final player = AudioPlayer();
-                                      await player.setSource(
-                                          AssetSource("sounds/melty/puto.mp3"));
-                                    },
-                                    icon: const Icon(Icons.play_arrow_rounded),
-                                    color: Colors.white,
-                                  ),
-                                  const Text(
-                                    "Puto",
-                                    style: TextStyle(color: Colors.white),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ) */
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 1,
+                itemBuilder: ((context, index) {
+                  return ContainerPlayer(audio: vtuber.sounds[index]);
+                }),
+              ),
+            )
           ],
         ),
       ),

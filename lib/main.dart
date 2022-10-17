@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vtuberdex/Provider/audioplayer.dart';
 import 'package:vtuberdex/Provider/vtubers.dart';
 import 'package:vtuberdex/Screens/main_vtuber_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:vtuberdex/Screens/vtuber_detail_screen.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
-
 
 void main() => runApp(const MyApp());
 
@@ -13,8 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Vtubers(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Vtubers()),
+        ChangeNotifierProvider(create: (context) => Audioplayer())
+      ],
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',

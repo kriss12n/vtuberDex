@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vtuberdex/Models/Audio.dart';
 
 class Vtuber {
   final String name;
@@ -7,7 +8,7 @@ class Vtuber {
   final String birthday;
   final String country;
   final String image;
-  List<String> sounds = [];
+  List<Audio> sounds = [];
   List<String> emotes = [];
   List<String> wallpapers = [];
   List<String> types = [];

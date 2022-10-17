@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vtuberdex/Models/Audio.dart';
 import 'package:vtuberdex/Models/vtuber.dart';
 
 class Vtubers with ChangeNotifier {
@@ -15,7 +16,7 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/melty/4.png",
           "assets/emotes/melty/5.png",
         ],
-        sounds: ["assets/sounds/melty/puto.mp3"],
+        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
         colors: [Color(0xff7663ED), Color.fromARGB(20, 69, 64, 224)],
         wallpapers: [],
         lore:
@@ -48,7 +49,10 @@ class Vtubers with ChangeNotifier {
         debut: "Febr. 13",
         country: "Panamá",
         emotes: [],
-        sounds: [],
+        sounds: [
+          Audio(url: "sounds/melty/puto.mp3", name: "puto"),
+          Audio(url: "sounds/triuwu/eructo.mpe", name: "eructo")
+        ],
         colors: [Color(0xffEBFF00), Color.fromARGB(20, 246, 248, 102)],
         wallpapers: [
           "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662782947/wallpapers/tri/wallpaper1_zn58ik.png"
@@ -196,7 +200,7 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/narivt/Emote4.png",
           "assets/emotes/narivt/Emote5.png",
         ],
-        sounds: ["assets/sounds/melty/puto.mp3"],
+        sounds: [],
         colors: [Color(0xff2596be), Color.fromARGB(19, 75, 70, 223)],
         wallpapers: [],
         lore:
@@ -235,7 +239,7 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/ryudon/ryudon4.gif",
           "assets/emotes/ryudon/ryudon5.gif",
         ],
-        sounds: ["assets/sounds/melty/puto.mp3"],
+        sounds: [],
         colors: [Color(0xff2B20AE), Color.fromARGB(20, 44, 32, 174)],
         wallpapers: [],
         lore:
@@ -274,7 +278,7 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/slachu/Slachu4.png",
           "assets/emotes/slachu/Slachu5.png",
         ],
-        sounds: ["assets/sounds/melty/puto.mp3"],
+        sounds: [],
         colors: [Color(0xffBB311E), Color.fromARGB(20, 187, 48, 30)],
         wallpapers: [],
         lore:
@@ -313,7 +317,7 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/froxe/4.png",
           "assets/emotes/froxe/5.png",
         ],
-        sounds: ["assets/sounds/melty/puto.mp3"],
+        sounds: [],
         colors: [Color(0xffF4FF3B), Color.fromARGB(19, 95, 221, 21)],
         wallpapers: [],
         lore:
@@ -339,7 +343,46 @@ class Vtubers with ChangeNotifier {
         twitch: "",
         youtube: "",
         discord: "",
-        types: ["Vsinger", "Gamer"])
+        types: ["Vsinger", "Gamer"]),
+    Vtuber(
+        name: "Cherimint",
+        birthday: "Dic. 30",
+        debut: "??",
+        country: "Chile",
+        emotes: [
+          "assets/emotes/cherimint/cheri1.png",
+          "assets/emotes/cherimint/cheri2.png",
+          "assets/emotes/cherimint/cheri3.png",
+          "assets/emotes/cherimint/cheri4.png",
+          "assets/emotes/cherimint/cheri5.png",
+        ],
+        sounds: [],
+        colors: [Color(0xffF4FF3B), Color.fromARGB(19, 95, 221, 21)],
+        wallpapers: [],
+        lore:
+            " Hi Hi! Cheri Aqui presente! Soy artista de Vtubers, tanto como emotes simples animados.... etc y creeme que hago muchas mas cosas! Tambien una adicta a las cosas cute -Slime Rancher mi pasion- Soy madre de +120 Vtubers! Soy  poco constante, pero cuando stremeo siempre hago lo mejor para hacer reir UwU ",
+        image: "assets/images/cheri.png",
+        nameVtuber: "Froxe",
+        nicknames: "Melty, mona china, vtubo, tutubo",
+        age: "< 100",
+        live2d: "Idol Mikii",
+        rigger: "Kibu_chan",
+        accesories: "assets web",
+        afiliation: "YandereLive",
+        favoriteAnimal: "Perro",
+        favoriteColor: "Rosado",
+        favoriteFood: "Papas fritas",
+        gender: "Femenino",
+        height: "150cm (sin gorro) / 180cm (con gorro)",
+        hobbies: "Videojuegos,ver series,Dibujar,ver anime,streaming",
+        model3d: "",
+        status: "activa",
+        twitter: "",
+        tiktok: "",
+        twitch: "",
+        youtube: "",
+        discord: "",
+        types: ["Dibujante", "Zatsudan"])
   ];
 
   List<Vtuber> get vtuberList {
