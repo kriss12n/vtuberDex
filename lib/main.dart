@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => Vtubers()),
-        ChangeNotifierProvider(create: (context) => Audioplayer())
       ],
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,

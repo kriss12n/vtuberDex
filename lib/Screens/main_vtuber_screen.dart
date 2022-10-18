@@ -27,76 +27,79 @@ class MainVtuberScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Color(0xffA694F1)))),
       body: SafeArea(
-        child: GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 15,
-              childAspectRatio: 3 / 3),
-          itemCount: vtuberslist.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(
-                  VtuberDetailScreen.routeName,
-                  arguments: vtuberslist[index].name),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black54,
-                              offset: Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 2.0,
-                            ), //BoxShadow
-                            BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(0.0, 0.0),
-                              blurRadius: 0.0,
-                              spreadRadius: 0.0,
-                            ), //BoxShadow
-                          ],
-                          gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: vtuberslist[index].colors)),
-                    ),
-                  ),
-                  GridTile(
-                    footer: GridTileBar(
-                        title: BorderedText(
-                      strokeWidth: 2.0,
-                      child: Text(
-                        vtuberslist[index].name,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    )),
-                    child: AspectRatio(
-                      aspectRatio: 3 / 2,
-                      child: Hero(
-                        tag: vtuberslist[index].name,
-                        child: Image.asset(
-                          vtuberslist[index].image,
-                          fit: BoxFit.cover,
-                        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 5, bottom: 15.0),
+          child: GridView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 15,
+                crossAxisSpacing: 15,
+                childAspectRatio: 3 / 3),
+            itemCount: vtuberslist.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () => Navigator.of(context).pushNamed(
+                    VtuberDetailScreen.routeName,
+                    arguments: vtuberslist[index].name),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(15.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black54,
+                                offset: Offset(
+                                  5.0,
+                                  5.0,
+                                ),
+                                blurRadius: 10.0,
+                                spreadRadius: 2.0,
+                              ), //BoxShadow
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(0.0, 0.0),
+                                blurRadius: 0.0,
+                                spreadRadius: 0.0,
+                              ), //BoxShadow
+                            ],
+                            gradient: LinearGradient(
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft,
+                                colors: vtuberslist[index].colors)),
                       ),
                     ),
-                  )
-                ],
-              ),
-            );
-          },
+                    GridTile(
+                      footer: GridTileBar(
+                          title: BorderedText(
+                        strokeWidth: 2.0,
+                        child: Text(
+                          vtuberslist[index].name,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )),
+                      child: AspectRatio(
+                        aspectRatio: 3 / 2,
+                        child: Hero(
+                          tag: vtuberslist[index].name,
+                          child: Image.asset(
+                            vtuberslist[index].image,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

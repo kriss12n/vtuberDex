@@ -39,7 +39,7 @@ class CardDates extends StatelessWidget {
               Text(
                 date,
                 style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey),
               ),
