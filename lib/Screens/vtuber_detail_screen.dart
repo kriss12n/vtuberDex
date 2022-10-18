@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:vtuberdex/Models/vtuber.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import 'package:vtuberdex/Widgets/Card_social_media.dart';
@@ -75,14 +73,14 @@ class VtuberDetailScreen extends StatelessWidget {
                   ),
                 ),
                 bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(50),
                     child: Container(
-                      decoration: BoxDecoration(color: Colors.black54),
+                      decoration: const BoxDecoration(color: Colors.black54),
                       child: const TabBar(
                           labelColor: Colors.white,
                           unselectedLabelColor: Colors.grey,
                           tabs: [Tab(text: "Canal"), Tab(text: "Vtuber")]),
-                    ),
-                    preferredSize: const Size.fromHeight(50))),
+                    ))),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
@@ -386,7 +384,7 @@ class Tab1 extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: 1,
+                itemCount: vtuber.sounds.length,
                 itemBuilder: ((context, index) {
                   return ContainerPlayer(audio: vtuber.sounds[index]);
                 }),
