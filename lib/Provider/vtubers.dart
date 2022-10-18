@@ -12,7 +12,15 @@ class Vtubers with ChangeNotifier {
         emotes: [],
         sounds: [
           Audio(url: "sounds/triuwu/eructo.mp3", name: "eructo"),
-          Audio(url: "sounds/melty/puto.mp3", name: "puto")
+          Audio(url: "sounds/melty/puto.mp3", name: "puto"),
+          Audio(url: "sounds/triuwu/eructo.mp3", name: "eructo"),
+          Audio(url: "sounds/melty/puto.mp3", name: "puto"),
+          Audio(url: "sounds/triuwu/eructo.mp3", name: "eructo"),
+          Audio(url: "sounds/melty/puto.mp3", name: "puto"),
+          Audio(url: "sounds/triuwu/eructo.mp3", name: "eructo"),
+          Audio(url: "sounds/melty/puto.mp3", name: "puto"),
+          Audio(url: "sounds/triuwu/eructo.mp3", name: "eructo"),
+          Audio(url: "sounds/melty/puto.mp3", name: "puto"),
         ],
         colors: [Color(0xffEBFF00), Color.fromARGB(20, 246, 248, 102)],
         wallpapers: [

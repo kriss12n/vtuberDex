@@ -104,296 +104,301 @@ class Tab1 extends StatelessWidget {
     String name = ModalRoute.of(context)!.settings.arguments as String;
     final vtuber = Provider.of<Vtubers>(context).findByID(name);
     return ClipRRect(
-      borderRadius: BorderRadius.circular((20.0)),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                vtuber.name,
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+        borderRadius: BorderRadius.circular((20.0)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  vtuber.name,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
-            const SizedBox(height: 5),
-            SizedBox(
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                runSpacing: 5.0,
-                spacing: 5.0,
-                children: vtuber.types.map((e) {
-                  return CustomBadgeTag(type: e);
-                }).toList(),
+              const SizedBox(height: 5),
+              SizedBox(
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  runSpacing: 5.0,
+                  spacing: 5.0,
+                  children: vtuber.types.map((e) {
+                    return CustomBadgeTag(type: e);
+                  }).toList(),
+                ),
               ),
-            ),
-            const SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                vtuber.country,
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey),
+              const SizedBox(height: 5),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  vtuber.country,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
               ),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                vtuber.lore,
-                textAlign: TextAlign.left,
-                style: const TextStyle(fontSize: 16, color: Colors.white),
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  vtuber.lore,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CardDates(vtuber.birthday, "Cumpleaños"),
-                CardDates(vtuber.debut, "Debut"),
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                "Redes sociales",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              const SizedBox(
+                height: 15,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const SizedBox(width: 15.0),
-                  CardSocialMedia(
-                      icon: const FaIcon(FontAwesomeIcons.youtube,
-                          color: Colors.white),
-                      color: Colors.red,
-                      url: vtuber.youtube),
-                  const SizedBox(width: 15.0),
-                  CardSocialMedia(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.twitter,
-                        color: Colors.white,
-                      ),
-                      color: Colors.lightBlue,
-                      url: vtuber.twitter),
-                  const SizedBox(width: 15.0),
-                  CardSocialMedia(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.twitch,
-                        color: Colors.white,
-                      ),
-                      color: Colors.indigo,
-                      url: vtuber.twitch),
-                  const SizedBox(width: 15.0),
-                  CardSocialMedia(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.tiktok,
-                        color: Colors.white,
-                      ),
-                      color: Colors.black,
-                      url: vtuber.tiktok),
-                  const SizedBox(width: 15.0),
-                  CardSocialMedia(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.discord,
-                        color: Colors.white,
-                      ),
-                      color: Colors.deepPurpleAccent,
-                      url: vtuber.tiktok),
-                  const SizedBox(width: 15.0),
+                  CardDates(vtuber.birthday, "Cumpleaños"),
+                  CardDates(vtuber.debut, "Debut"),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                "Algunos Emotes",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              const SizedBox(
+                height: 15,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: SingleChildScrollView(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  "Redes sociales",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                    children: vtuber.emotes.map((emote) {
-                  return GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        backgroundColor: const Color(0xff424350),
-                        context: context,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0)),
-                        builder: (context) => Column(
-                          children: [
-                            const SizedBox(height: 10.0),
-                            const Text(
-                              "Emotes",
-                              style: TextStyle(
-                                  fontSize: 20.0, color: Colors.white),
-                            ),
-                            const SizedBox(height: 15.0),
-                            Expanded(
-                              child: GridView.builder(
-                                  padding: const EdgeInsets.all(10.0),
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: vtuber.emotes.length,
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 4,
-                                          childAspectRatio: 3 / 2,
-                                          crossAxisSpacing: 5.0,
-                                          mainAxisSpacing: 10.0),
-                                  itemBuilder: (context, index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Image.asset(
-                                        vtuber.emotes[index],
-                                        width: 32,
-                                        height: 32,
-                                      ),
-                                    );
-                                  }),
-                            ),
-                            ElevatedButton(
-                              onPressed: () async {
-                                try {
-                                  const url = "https://sticker.ly/s/YTURI1";
-                                  if (await canLaunchUrlString(url)) {
-                                    launchUrlString(url,
-                                        mode: LaunchMode.externalApplication);
-                                  }
-                                } catch (e) {
-                                  print(e);
-                                }
-                              },
-                              child: const Text("Instalar emotes en whatsapp"),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text("Cerrar"),
-                            ),
-                            const SizedBox(height: 40.0),
-                          ],
+                  children: [
+                    const SizedBox(width: 15.0),
+                    CardSocialMedia(
+                        icon: const FaIcon(FontAwesomeIcons.youtube,
+                            color: Colors.white),
+                        color: Colors.red,
+                        url: vtuber.youtube),
+                    const SizedBox(width: 15.0),
+                    CardSocialMedia(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.twitter,
+                          color: Colors.white,
                         ),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Image.asset(
-                        emote,
-                        width: 64,
-                        height: 64,
+                        color: Colors.lightBlue,
+                        url: vtuber.twitter),
+                    const SizedBox(width: 15.0),
+                    CardSocialMedia(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.twitch,
+                          color: Colors.white,
+                        ),
+                        color: Colors.deepPurpleAccent,
+                        url: vtuber.twitch),
+                    const SizedBox(width: 15.0),
+                    CardSocialMedia(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.tiktok,
+                          color: Colors.white,
+                        ),
+                        color: Colors.black,
+                        url: vtuber.tiktok),
+                    const SizedBox(width: 15.0),
+                    CardSocialMedia(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.discord,
+                          color: Colors.white,
+                        ),
+                        color: Colors.indigo,
+                        url: vtuber.tiktok),
+                    const SizedBox(width: 15.0),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  "Algunos Emotes",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      children: vtuber.emotes.map((emote) {
+                    return GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          backgroundColor: const Color(0xff424350),
+                          context: context,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0)),
+                          builder: (context) => Column(
+                            children: [
+                              const SizedBox(height: 10.0),
+                              const Text(
+                                "Emotes",
+                                style: TextStyle(
+                                    fontSize: 20.0, color: Colors.white),
+                              ),
+                              const SizedBox(height: 15.0),
+                              Expanded(
+                                child: GridView.builder(
+                                    padding: const EdgeInsets.all(10.0),
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemCount: vtuber.emotes.length,
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 4,
+                                            childAspectRatio: 3 / 2,
+                                            crossAxisSpacing: 5.0,
+                                            mainAxisSpacing: 10.0),
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        child: Image.asset(
+                                          vtuber.emotes[index],
+                                          width: 32,
+                                          height: 32,
+                                        ),
+                                      );
+                                    }),
+                              ),
+                              ElevatedButton(
+                                onPressed: () async {
+                                  try {
+                                    const url = "https://sticker.ly/s/YTURI1";
+                                    if (await canLaunchUrlString(url)) {
+                                      launchUrlString(url,
+                                          mode: LaunchMode.externalApplication);
+                                    }
+                                  } catch (e) {
+                                    print(e);
+                                  }
+                                },
+                                child:
+                                    const Text("Instalar emotes en whatsapp"),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text("Cerrar"),
+                              ),
+                              const SizedBox(height: 40.0),
+                            ],
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Image.asset(
+                          emote,
+                          width: 64,
+                          height: 64,
+                        ),
                       ),
-                    ),
-                  );
-                }).toList()),
+                    );
+                  }).toList()),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                "Wallpapers",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              const SizedBox(
+                height: 15,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                    children: vtuber.wallpapers.map((wall) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed(
-                          VtuberImageViewScreen.routeName,
-                          arguments: wall);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Image.network(
-                        wall,
-                        width: 100,
-                        height: 230,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  "Wallpapers",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      children: vtuber.wallpapers.map((wall) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                            VtuberImageViewScreen.routeName,
+                            arguments: wall);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Image.network(
+                          wall,
+                          width: 100,
+                          height: 230,
+                        ),
                       ),
-                    ),
-                  );
-                }).toList()),
+                    );
+                  }).toList()),
+                ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                "Sonidos",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  "Sonidos",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: vtuber.sounds.length,
-                itemBuilder: ((context, index) {
-                  return ContainerPlayer(audio: vtuber.sounds[index]);
-                }),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 1,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 4 / 1.4),
+                  itemCount: vtuber.sounds.length,
+                  itemBuilder: ((context, index) =>
+                      ContainerPlayer(audio: vtuber.sounds[index])),
+                ),
               ),
-            )
-          ],
-        ),
-      ),
-    );
+            ],
+          ),
+        ));
   }
 }
 
