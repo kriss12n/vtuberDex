@@ -2,8 +2,10 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'package:vtuberdex/Models/Audio.dart';
+import 'package:ringtone_set/ringtone_set.dart';
+
+enum Menu { itemOne, itemTwo, itemThree, itemFour }
 
 class ContainerPlayer extends StatefulWidget {
   final Audio audio;
@@ -18,7 +20,7 @@ class _ContainerPlayerState extends State<ContainerPlayer> {
   bool audioPlayed = false;
   bool isPlaying = false;
   bool isPaused = false;
-
+  String _selectedMenu = '';
   @override
   Widget build(BuildContext context) {
     void playSoundAsset(String url) async {
@@ -104,11 +106,90 @@ class _ContainerPlayerState extends State<ContainerPlayer> {
               style: const TextStyle(color: Colors.white),
             ),
             const Spacer(flex: 1),
-            IconButton(
-                splashRadius: 15.0,
-                onPressed: () {},
+            PopupMenuButton<Menu>(
+                color: Color(0xff424350),
+                splashRadius: 15,
                 icon: const FaIcon(FontAwesomeIcons.ellipsisVertical,
-                    color: Colors.white))
+                    color: Colors.white),
+                onSelected: (Menu item) {
+                  setState(() {
+                    _selectedMenu = item.name;
+                  });
+                },
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
+                      PopupMenuItem<Menu>(
+                          value: Menu.itemOne,
+                          child: GestureDetector(
+                            onTap: () {
+                              RingtoneSet.setRingtone(
+                                  "assets/${widget.audio.url}");
+                            },
+                            child: Row(
+                              children: const [
+                                Text(
+                                  'Establecer como',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.call_rounded,
+                                  color: Colors.white,
+                                )
+                              ],
+                            ),
+                          )),
+                      PopupMenuItem<Menu>(
+                          value: Menu.itemTwo,
+                          child: GestureDetector(
+                            onTap: () {
+                              RingtoneSet.setNotification(
+                                  "assets/${widget.audio.url}");
+                            },
+                            child: Row(
+                              children: const [
+                                Text(
+                                  'Establecer como',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(Icons.notifications, color: Colors.white)
+                              ],
+                            ),
+                          )),
+                      PopupMenuItem<Menu>(
+                        value: Menu.itemThree,
+                        child: GestureDetector(
+                          onTap: () {
+                            RingtoneSet.setAlarm("assets/${widget.audio.url}");
+                          },
+                          child: Row(
+                            children: const [
+                              Text(
+                                'Establecer como',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.alarm,
+                                color: Colors.white,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ]),
           ],
         ),
       ),
