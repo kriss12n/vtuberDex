@@ -13,7 +13,6 @@ class VtuberImageViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final String imageLoaded =
         ModalRoute.of(context)?.settings.arguments as String;
-
     return Scaffold(
       body: Stack(
         children: [
@@ -50,7 +49,7 @@ class VtuberImageViewScreen extends StatelessWidget {
                             await AsyncWallpaper.setWallpaper(
                                 url: imageLoaded,
                                 wallpaperLocation: AsyncWallpaper.HOME_SCREEN,
-                                goToHome: true);
+                                goToHome: false);
                           } on PlatformException {
                             print('Failed to get wallpaper.');
                           }

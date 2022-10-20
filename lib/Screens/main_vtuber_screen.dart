@@ -12,7 +12,6 @@ class MainVtuberScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Vtuber> vtuberslist = Provider.of<Vtubers>(context).vtuberList;
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(

@@ -3,12 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:vtuberdex/Screens/vtuber_image_view_screen.dart';
+import 'package:vtuberdex/Screens/vtuber_model_view_screen.dart';
 import 'package:vtuberdex/Widgets/Card_dates.dart';
 import 'package:vtuberdex/Widgets/Card_social_media.dart';
 import 'package:vtuberdex/Widgets/Container_player.dart';
 import 'package:vtuberdex/Widgets/Custom_badge_tag.dart';
 import 'package:vtuberdex/Widgets/Labels.dart';
 import '../Provider/vtubers.dart';
+import 'package:photo_view/photo_view.dart';
 
 class VtuberDetailScreen extends StatelessWidget {
   const VtuberDetailScreen({super.key});
@@ -228,6 +230,41 @@ class Tab1 extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Text(
+                  "Evolución",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                    children: vtuber.modelos.map((item) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(
+                          VtuberModelViewScreen.routeName,
+                          arguments: {
+                            "models": vtuber.modelos,
+                            "index": vtuber.modelos.indexOf(item)
+                          });
+                    },
+                    child: SizedBox(
+                      width: 200,
+                      height: 250,
+                      child: Image.asset(
+                        (item),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  );
+                }).toList()),
+              ),
               const SizedBox(
                 height: 15,
               ),
@@ -382,7 +419,8 @@ class Tab1 extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
                 child: GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),

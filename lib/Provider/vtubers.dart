@@ -7,7 +7,7 @@ class Vtubers with ChangeNotifier {
     Vtuber(
         name: "Triuwu",
         birthday: "Sep. 08",
-        debut: "13/02/22",
+        debut: "Jul. 02/21",
         country: "Panamá",
         emotes: [],
         sounds: [
@@ -25,6 +25,11 @@ class Vtubers with ChangeNotifier {
         colors: [Color(0xffEBFF00), Color.fromARGB(20, 246, 248, 102)],
         wallpapers: [
           "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662782947/wallpapers/tri/wallpaper1_zn58ik.png"
+        ],
+        modelos: [
+          "assets/models/triuwu/tri1.png",
+          "assets/models/triuwu/tri2.png",
+          "assets/models/triuwu/tri3.png"
         ],
         lore:
             "Muy buenas! soy una pequeña artista nacida en un hermoso y utópico lugar llamado Latinoamérica, en Panamá para ser más precisos. Me gustan las monas chinas y simpeo profesionalmente otras vtubers xDDDD Mi trabajo no será la gran cosa, pero es honesto y lo hago con cariño, asi que espero que les guste las pendejadas que haga uwu",
@@ -52,8 +57,8 @@ class Vtubers with ChangeNotifier {
         types: ["Dibujante"]),
     Vtuber(
         name: "Melty",
-        birthday: "Sept. 13",
-        debut: "Febr. 13",
+        birthday: "Sep. 13",
+        debut: "Feb. 13/21",
         country: "Chile",
         emotes: [
           "assets/emotes/melty/1.png",
@@ -65,6 +70,7 @@ class Vtubers with ChangeNotifier {
         sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xff7663ED), Color.fromARGB(20, 69, 64, 224)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Hewwo~ soy Melty Me gustan mucho los juegos mmo/rpg y survival, me encanta divertirme jugando ya sea sola o en multijugador(en especial en multijugador).Tengo una fascinación por los anime de genero Isekai / Love Comedy, y las novelas ligeras.Sí, soy bastante Otaku",
         image: "assets/images/melty_grande.png",
@@ -95,9 +101,10 @@ class Vtubers with ChangeNotifier {
         debut: "¿",
         country: "ChiimuuLandia",
         emotes: [],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xffFF0000), Color.fromARGB(20, 148, 40, 40)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Buenas! puedes decirme chimu, chumi, mich- así no era. Mi vida es un chiste Y NO SOY GATA!!1! créanme xfa.",
         image: "assets/images/chomo.png",
@@ -125,14 +132,15 @@ class Vtubers with ChangeNotifier {
     Vtuber(
         name: "Kotone",
         birthday: "Jul. 15",
-        debut: "Nov. 15",
+        debut: "Nov. 15/21",
         country: "Chile",
         emotes: [],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xffE3E2ED), Color.fromARGB(20, 160, 160, 166)],
         wallpapers: [
           "https://res.cloudinary.com/dyczsw1l2/image/upload/v1662798633/wallpapers/kotone/kotone1_cbs1by.png"
         ],
+        modelos: [],
         lore:
             "Kotone who? Yo solo conozco a Potone, la joven promesa del vtubing hispano ᏊºัꈊºัᏊ Solo soy una oveja mañosa con pezuñas afiladas así que pórtate bien~ Bienvenid@ al corral ♡!! 🐑",
         image: "assets/images/kotone.png",
@@ -160,7 +168,7 @@ class Vtubers with ChangeNotifier {
     Vtuber(
         name: "Chocomint",
         birthday: "Jul. 15",
-        debut: "Nov. 15",
+        debut: "Nov. 15/21",
         country: "Chile",
         emotes: [
           "assets/emotes/chocomint/menta1.png",
@@ -169,9 +177,10 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/chocomint/menta4.png",
           "assets/emotes/chocomint/menta5.png"
         ],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xffB2C98D), Color.fromARGB(20, 181, 225, 174)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Hola! Soy Mint, puedes llamarme Minty, Choco, Chocomint y Menta. Soy una ninfa de menta que se aburrió de su trabajo y decidió que es mejor jugar en el pc jajaja.",
         image: "assets/images/menta.png",
@@ -199,7 +208,7 @@ class Vtubers with ChangeNotifier {
     Vtuber(
         name: "NariVT",
         birthday: "Jun. 15",
-        debut: "Febr. 7",
+        debut: "Febr. 7/22",
         country: "Chile",
         emotes: [
           "assets/emotes/narivt/Emote1.png",
@@ -208,9 +217,10 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/narivt/Emote4.png",
           "assets/emotes/narivt/Emote5.png",
         ],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xff2596be), Color.fromARGB(19, 75, 70, 223)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Hola chicos! Soy nueva en este mundo Vtuber~ Soy Nari, una torpe Ajolote, WAIFUY HUSBANDO que le gusta jugar juegos y stremear!",
         image: "assets/images/narivt.png",
@@ -237,8 +247,8 @@ class Vtubers with ChangeNotifier {
         types: ["Dibujante"]),
     Vtuber(
         name: "Ryudon",
-        birthday: "Mayo. 23",
-        debut: "Febr. 11",
+        birthday: "May. 23",
+        debut: "Feb. 11/22",
         country: "Chile",
         emotes: [
           "assets/emotes/ryudon/ryudon1.png",
@@ -247,9 +257,10 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/ryudon/ryudon4.gif",
           "assets/emotes/ryudon/ryudon5.gif",
         ],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xff2B20AE), Color.fromARGB(20, 44, 32, 174)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Soy un simple humano, sin embargo, esta es mi 9na vida, cada vez que he muerto en mis anteriores 8 vidas lo he hecho con arrepentimientos en las decisiones que tomé, y por alguna razón, tras morir he vuelto a cuando tenía 11 años con todos los recuerdos de mis últimas vidas. En cada vida he tomado distintas decisiones, sin embargo, estoy un poco cansado y he decidido que en esta nueva oportunidad solo me dedicaré a hacer las cosas que me gustan, lo que me hace preguntar… ¿Ser VTuber será mi última mala decisión?",
         image: "assets/images/ryudon.png",
@@ -286,9 +297,10 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/slachu/Slachu4.png",
           "assets/emotes/slachu/Slachu5.png",
         ],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xffBB311E), Color.fromARGB(20, 187, 48, 30)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Holaaa! me llamo Slachu Kawauso, y soy una nutria que se convirtió en yokai 🦦 me gusta jugar, cantar y dibujar. Espero que pasemos un buen rato juntos ❤",
         image: "assets/images/slachu.png",
@@ -316,7 +328,7 @@ class Vtubers with ChangeNotifier {
     Vtuber(
         name: "Froxe",
         birthday: "Ene. 7",
-        debut: "Ene. 7",
+        debut: "Ene. 7/22",
         country: "EE.UU",
         emotes: [
           "assets/emotes/froxe/1.png",
@@ -325,9 +337,10 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/froxe/4.png",
           "assets/emotes/froxe/5.png",
         ],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xffF4FF3B), Color.fromARGB(19, 95, 221, 21)],
         wallpapers: [],
+        modelos: [],
         lore:
             "Hola chicos! Soy nueva en este mundo Vtuber~ Soy Nari, una torpe Ajolote, WAIFUY HUSBANDO que le gusta jugar juegos y stremear!",
         image: "assets/images/froxe.png",
@@ -364,9 +377,10 @@ class Vtubers with ChangeNotifier {
           "assets/emotes/cherimint/cheri4.png",
           "assets/emotes/cherimint/cheri5.png",
         ],
-        sounds: [Audio(name: "puto", url: "assets/sounds/melty/puto.mp3")],
+        sounds: [Audio(name: "puto", url: "sounds/melty/puto.mp3")],
         colors: [Color(0xffF4FF3B), Color.fromARGB(19, 95, 221, 21)],
         wallpapers: [],
+        modelos: [],
         lore:
             " Hi Hi! Cheri Aqui presente! Soy artista de Vtubers, tanto como emotes simples animados.... etc y creeme que hago muchas mas cosas! Tambien una adicta a las cosas cute -Slime Rancher mi pasion- Soy madre de +120 Vtubers! Soy  poco constante, pero cuando stremeo siempre hago lo mejor para hacer reir UwU ",
         image: "assets/images/cheri.png",

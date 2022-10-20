@@ -1,7 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:vtuberdex/Models/Audio.dart';
 import 'package:ringtone_set/ringtone_set.dart';
 
@@ -167,8 +169,11 @@ class _ContainerPlayerState extends State<ContainerPlayer> {
                       PopupMenuItem<Menu>(
                         value: Menu.itemThree,
                         child: GestureDetector(
-                          onTap: () {
-                            RingtoneSet.setAlarm("assets/${widget.audio.url}");
+                          onTap: () async {
+                            if (await Permission.storage.request().isGranted) {
+                              RingtoneSet.setAlarm(
+                                  "assets/${widget.audio.url}");
+                            }
                           },
                           child: Row(
                             children: const [

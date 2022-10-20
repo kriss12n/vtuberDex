@@ -11,6 +11,7 @@ class Vtuber {
   List<Audio> sounds = [];
   List<String> emotes = [];
   List<String> wallpapers = [];
+  List<String> modelos = [];
   List<String> types = [];
   List<Color> colors = [];
   final String nameVtuber;
@@ -44,6 +45,7 @@ class Vtuber {
     required this.sounds,
     required this.colors,
     required this.wallpapers,
+    required this.modelos,
     required this.image,
     required this.nameVtuber,
     required this.nicknames,
